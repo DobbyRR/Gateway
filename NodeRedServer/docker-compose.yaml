@@ -12,12 +12,13 @@ services:
       - C:\mosquitto\log:/mosquiitto/log
 
   nodered:
-    image: nodered/node-red
+    build: ./nodered
     container_name: nodered
     ports:
       - "1880:1880"
     volumes:
-      - nodered_data:/mqtt_data
+      # - nodered_data:/mqtt_data
+      - nodered_data:/data
     depends_on:
       - mqtt
 
